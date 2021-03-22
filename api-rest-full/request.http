@@ -1,0 +1,68 @@
+###
+GET http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+### FAIL
+GET http://localhost:3000/users/604967b48950f35ed853fc62 HTTP/1.1
+content-type: application/json
+
+### TRUE
+GET http://localhost:3000/users/6057d7cf3cc4854a28a3339c HTTP/1.1
+content-type: application/json
+
+### FAIL
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Aliny",
+    "cpf": "243423",
+    "age": 33,
+    "cell": 1010101010
+}
+
+
+### True
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Aliny",
+    "cpf": "243423",
+    "age": 33,
+    "cell": 10101010101
+}
+
+
+
+###
+PATCH http://localhost:3000/users/604967b48950f35ed853fc64 HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Carlos"
+}
+
+###
+DELETE  http://localhost:3000/users/604967b48950f35ed853fc65 HTTP/1.1
+content-type: application/json
+
+
+### MY REQUESTS ###
+
+
+### Looking for godofredo True
+GET http://localhost:3000/cells/12345678912 HTTP/1.1
+content-type: application/json
+
+### Looking for godofredo False
+GET http://localhost:3000/cells/12345678992 HTTP/1.1
+content-type: application/json
+
+### FIND BY AGE TRUE
+GET http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+### FIND BY AGE FALSE
+GET http://localhost:3000/users?age=24 HTTP/1.1
+content-type: application/json
